@@ -39,10 +39,10 @@ else
 end
 
 
-do_split = true
-start = 1_000_000+20_000
-num_query = 1000
-num_db = 100_000
+do_split = false
+start = 299_482
+num_query = 10_000
+num_db = 0
 querydbfile = joinpath(datapath, "querydb.h5")
 tfile = joinpath(datapath, "trj.t")
 labelfile = joinpath(datapath, "trj.label")

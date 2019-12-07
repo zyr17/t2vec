@@ -11,11 +11,15 @@ The output hdf5 file will be used to construct vocabulary by `makeVocab!()` in
 """
 function porto2h5(csvfile::String)
     df = CSV.read(csvfile)
+    filenamelength = length(csvfile)
+    filename = csvfile[1:filenamelength - 4]
     df = df[df.MISSING_DATA .== "False", :]
-    sort!(df, [:TIMESTAMP])
+    #sort!(df, [:TIMESTAMP])
     println("Processing $(size(df, 1)) trips...")
     ## writing in numeric matrix with hdf5
-    h5open("../data/porto.h5", "w") do f
+    h5filename = string("../data/", filename, ".h5")
+    println("save in ", h5filename)
+    h5open(h5filename, "w") do f
         num, num_incompleted = 0, 0
         for trip in df.POLYLINE
             try
@@ -30,7 +34,7 @@ function porto2h5(csvfile::String)
             num += 1
             f["/trips/$num"] = trip
             f["/timestamps/$num"] = collect(0:tripLength-1) * 15.0
-            num % 100_000 == 0 && println("$num")
+            num % 10_000 == 0 && println("$num")
         end
         attrs(f)["num"] = num
         println("Incompleted trip: $num_incompleted.\nSaved $num trips.")

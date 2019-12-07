@@ -51,7 +51,7 @@ end
 #num_out_region = makeVocab!(region, "../data/$cityname.h5")
 
 println("Vocabulary size $(region.vocab_size) with cell size $cellsize (meters)")
-createTrainVal(region, "../data/$cityname.h5", downsamplingDistort, 1_000_000, 10_000)
+createTrainVal(region, "../data/$cityname.h5", downsamplingDistort, 289_481, 10_000)
 saveKNearestVocabs(region)
 
 #region.cellcount |> keys |> maximum

@@ -63,7 +63,8 @@ function createQueryDB(trjfile::String, start::Int,
             trip = read(f["/trips/$i"])
             timestamp = read(f["/timestamps/$i"])
             if nquery < querysize
-                if 2min_length <= size(trip, 2) <= 2max_length
+                #if 2min_length <= size(trip, 2) <= 2max_length
+                if true
                     if do_split
                         nquery += 1
                         ndb += 1

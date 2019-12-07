@@ -1,12 +1,12 @@
 {
   "region":
   {
-    "cityname":"porto",
-    "minlon":-8.735152,
-    "minlat":40.953673,
-    "maxlon":-8.156309,
-    "maxlat":41.307945,
+    "cityname":"porto_all",
+    "minlon":-8.699994,
+    "minlat":41.100048,
+    "maxlon":-8.482023,
+    "maxlat":41.199993,
     "cellsize":100.0,
-    "minfreq":100
+    "minfreq":10
   }
 }

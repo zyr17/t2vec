@@ -1,4 +1,4 @@
 
 include("utils.jl")
 
-porto2h5("../data/porto.csv")
+porto2h5("../data/traj_test.csv")

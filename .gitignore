@@ -1,0 +1,4 @@
+data
+best_model*
+checkpoint*
+*.pyc
