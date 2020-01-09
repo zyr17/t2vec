@@ -1,0 +1,16 @@
+{
+  "region":
+  {
+    "cityname":"shanghai_all",
+    "minlon":-8.699994,
+    "minlat":41.100048,
+    "maxlon":-8.482023,
+    "maxlat":41.199993,
+    "cellsize":100.0,
+    "minfreq":10,
+    "vocab_size":13559,
+    "train_size":289481,
+    "eval_size":10000,
+    "test_size":10000
+  }
+}

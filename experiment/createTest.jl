@@ -40,8 +40,8 @@ end
 
 
 do_split = false
-start = 299_482
-num_query = 10_000
+start = regionps["train_size"] + regionps["eval_size"] + 1
+num_query = regionps["test_size"]
 num_db = 0
 querydbfile = joinpath(datapath, "querydb.h5")
 tfile = joinpath(datapath, "trj.t")

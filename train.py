@@ -101,10 +101,11 @@ def init_parameters(model):
     for p in model.parameters():
         p.data.uniform_(-0.1, 0.1)
 
-def savecheckpoint(state, is_best, filename="checkpoint.pt"):
+def savecheckpoint(state, is_best, filenumber=0):
+    filename = 'data/checkpoint/%06d.pt' % filenumber
     torch.save(state, filename)
     if is_best:
-        shutil.copyfile(filename, 'best_model.pt')
+        shutil.copyfile(filename, 'data/best_model/%06d.pt' % filenumber)
 
 def validate(valData, model, lossF, args):
     """
@@ -256,6 +257,6 @@ def train(args):
                     "m1": m1.state_dict(),
                     "m0_optimizer": m0_optimizer.state_dict(),
                     "m1_optimizer": m1_optimizer.state_dict()
-                }, is_best)
+                }, is_best, iteration)
         except KeyboardInterrupt:
             break
